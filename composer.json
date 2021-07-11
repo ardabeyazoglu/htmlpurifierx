@@ -1,0 +1,28 @@
+{
+    "name": "ardabeyazoglu/htmlpurifierx",
+    "description": "A shim around original HTMLPurifier library to allow more customizations",
+    "version": "1.0.0",
+    "type": "library",
+    "require": {
+        "php": ">=5.2",
+        "ezyang/htmlpurifier": "^4.13"
+    },
+    "require-dev": {
+        "xemlock/htmlpurifier-html5": "^0.1"
+    },
+    "homepage": "https://github.com/ardabeyazoglu/htmlpurifierx",
+    "license": "LGPL-2.1-or-later",
+    "authors": [
+        {
+            "name": "Arda Beyazoglu",
+            "email": "arda@beyazoglu.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": { "HTMLPurifierX": "library/" },
+        "files": ["library/HTMLPurifierX.composer.php"],
+        "exclude-from-classmap": [
+            "/library/HTMLPurifierX/Language/"
+        ]
+    }
+}
