@@ -48,6 +48,16 @@ class HTMLPurifierX_Config extends HTMLPurifier_Config
     }
 
     /**
+     * Creates a new config object that inherits from a previous one.
+     * @param HTMLPurifier_Config $config Configuration object to inherit from.
+     * @return HTMLPurifierX_Config object with $config as its parent.
+     */
+    public static function inherit(HTMLPurifier_Config $config)
+    {
+        return new HTMLPurifierX_Config($config->def, $config->plist);
+    }
+
+    /**
      * Convenience constructor that creates a default configuration object.
      * @return HTMLPurifierX_Config default object.
      */
