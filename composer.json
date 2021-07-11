@@ -1,7 +1,7 @@
 {
     "name": "ardabeyazoglu/htmlpurifierx",
     "description": "A shim around original HTMLPurifier library to allow more customizations",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "type": "library",
     "require": {
         "php": ">=5.2",

@@ -11,5 +11,3 @@ function __autoload($class)
 {
     return HTMLPurifierX_Bootstrap::autoload($class);
 }
-
-// vim: et sw=4 sts=4

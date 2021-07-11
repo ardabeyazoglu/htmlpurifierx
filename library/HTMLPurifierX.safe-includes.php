@@ -17,6 +17,7 @@ require_once $__dir . '/HTMLPurifierX/AttrValidator.php';
 require_once $__dir . '/HTMLPurifierX/Bootstrap.php';
 require_once $__dir . '/HTMLPurifierX/ElementDef.php';
 require_once $__dir . '/HTMLPurifierX/Generator.php';
+require_once $__dir . '/HTMLPurifierX/ChildDef/All.php';
 require_once $__dir . '/HTMLPurifierX/Strategy/Core.php';
 require_once $__dir . '/HTMLPurifierX/Strategy/FixNesting.php';
 require_once $__dir . '/HTMLPurifierX/Strategy/MakeWellFormed.php';

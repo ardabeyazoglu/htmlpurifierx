@@ -24,6 +24,7 @@ require 'HTMLPurifierX/Bootstrap.php';
 //require 'HTMLPurifierX/ConfigSchema.php';
 require 'HTMLPurifierX/ElementDef.php';
 require 'HTMLPurifierX/Generator.php';
+require 'HTMLPurifierX/ChildDef/All.php';
 require 'HTMLPurifierX/Strategy/Core.php';
 require 'HTMLPurifierX/Strategy/FixNesting.php';
 require 'HTMLPurifierX/Strategy/MakeWellFormed.php';

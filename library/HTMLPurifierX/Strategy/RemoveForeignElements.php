@@ -132,17 +132,12 @@ class HTMLPurifierX_Strategy_RemoveForeignElements extends HTMLPurifier_Strategy
                         }
                     } else {
                         if ($allowCustomElements) {
-                            if (!empty($allowCustomElementsRegex)) {
-                                if (preg_match($allowCustomElementsRegex, $token->name)) {
-                                    $xdef = HTMLPurifierX_ElementDef::copyFrom($definition->info['div']);
-                                    $xdef->setCustomElement(true);
-                                    $xdef->child->elements[$token->name] = true;
-                                    $definition->info[$token->name] = $xdef;
-                                    $result[] = $token;
-                                    continue;
-                                }
-                            }
-                            if (is_null($allowCustomElementsRegex)) {
+                            if (empty($allowCustomElementsRegex) || preg_match($allowCustomElementsRegex, $token->name)) {
+                                $xdef = new HTMLPurifierX_ElementDef();
+                                $xdef->setCustomElement(true);
+                                $xdef->child = new HTMLPurifierX_ChildDef_All();
+                                $xdef->autoclose = false;
+                                $definition->info[$token->name] = $xdef;
                                 $result[] = $token;
                                 continue;
                             }

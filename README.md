@@ -16,7 +16,7 @@ It extends configuration options to allow following features that can't be accom
 - Allow all custom element names that satisy a regex, since they are widely used in web components and modern frameworks. A common use case would be to allow all elements with a user defined prefix.
 
         $configObject->set("HTML.AllowCustomElements", true);
-        // default "". NULL means allow all of them.
+        // default "": means allow all custom elements.
         $configObject->set("HTML.AllowCustomElementsRegex", "/^x-/");
         
         

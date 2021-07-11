@@ -30,6 +30,7 @@ $html = <<<HTML
     <section>
         <article data-id="12345">
             test article
+            <x-button class="custom-btn" data-value="1" on:click="alert('...')">Custom Button Inside HTML5 Node</x-button>
         </article>
     </section>
 </div>

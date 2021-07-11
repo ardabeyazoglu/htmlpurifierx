@@ -238,10 +238,17 @@ class HTMLPurifierX_Strategy_MakeWellFormed extends HTMLPurifier_Strategy_MakeWe
                         $parent_def = $definition->info[$parent->name];
                         $parent_elements = $parent_def->child->getAllowedElements($config);
                         $autoclose = !isset($parent_elements[$token->name]);
+                        if ($parent_def->child instanceof HTMLPurifierX_ChildDef_All) {
+                            $autoclose = false;
+                        }
                     }
 
-                    if (stristr($token->name, 'x-') !== false) {
-                        $autoclose = false;
+                    if ($autoclose && $allowCustomElements) {
+                        if (!empty($allowCustomElementsRegex)) {
+                            if (preg_match($allowCustomElementsRegex, $token->name)) {
+                                $autoclose = false;
+                            }
+                        }
                     }
 
                     if ($autoclose && $definition->info[$token->name]->wrap) {
@@ -374,7 +381,6 @@ class HTMLPurifierX_Strategy_MakeWellFormed extends HTMLPurifier_Strategy_MakeWe
             // the tokens get processed again.
             $current_parent = array_pop($this->stack);
             if ($current_parent->name == $token->name) {
-                //var_dump($current_parent->name , $token->name);
                 $token->start = $current_parent;
                 foreach ($this->injectors as $i => $injector) {
                     if (isset($token->skip[$i])) {
